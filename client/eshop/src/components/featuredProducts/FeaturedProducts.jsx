@@ -1,6 +1,7 @@
 import React from 'react'
 import "./FeaturedProducts.scss"
-function FeaturedProducts() {
+import Card from '../card/Card'
+function FeaturedProducts({type}) {
 
 const data = [
     {
@@ -29,7 +30,7 @@ const data = [
     },
     {
         id: 4,
-        img:"https://images.pexels.com/photos/2065200/pexels-photo-2065200.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        img:"https://images.pexels.com/photos/1457983/pexels-photo-1457983.jpeg?auto=compress&cs=tinysrgb&w=1600",
         title: "Hat",
         oldPrice: 19,
         price: 12,
@@ -38,7 +39,23 @@ const data = [
 
     
   return (
-    <div className='featuredProducts'></div>
+    <div className='featuredProducts'>
+        <div className="top">
+            <h1>{type} products</h1>
+            <p>
+                Loren ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut tabore et dolore magna aliqua. Quis ipsum
+                suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan
+                lacus vel facilisis tabore et dolore magna aliqua. Quis ipsum
+                suspendisse ultrices gravida. Risus commodo viverra maecenas.
+            </p>
+        </div>
+        <div className="bottom">
+            {data.map(item => (
+                <Card item={item} key={item.id}/>
+            ))}
+        </div>
+    </div>
   )
 }
 
